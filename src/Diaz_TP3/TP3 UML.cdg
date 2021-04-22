@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="TP3">
+  <ClassDiagramComponents>
+    <Class name="Jubilado" package="TP3" visibility="public" xPosition="20.0" yPosition="707.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="dni"/>
+          <Argument type="LocalDate" name="fechaDeNacimiento"/>
+          <Argument type="String" name="domicilio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="cobrar" returnType="void" visibility="package"/>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="TP3" visibility="public" isAbstract="true" xPosition="389.0" yPosition="30.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="protected"/>
+        <Field name="dni" type="int" visibility="protected"/>
+        <Field name="fechaDeNacimiento" type="LocalDate" visibility="protected"/>
+        <Field name="domicilio" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="dni"/>
+          <Argument type="LocalDate" name="fechaDeNacimiento"/>
+          <Argument type="String" name="domicilio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="getDni" returnType="int" visibility="public"/>
+        <Method name="getFechaDeNacimiento" returnType="LocalDate" visibility="public"/>
+        <Method name="getDomicilio" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="int" name="dni"/>
+        </Method>
+        <Method name="setFechaDeNacimiento" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="fechaDeNacimiento"/>
+        </Method>
+        <Method name="setDomicilio" returnType="void" visibility="public">
+          <Argument type="String" name="domicilio"/>
+        </Method>
+        <Method name="calcularEdad" returnType="long" visibility="public"/>
+        <Method name="calcularDiasVividos" returnType="long" visibility="public"/>
+        <Method name="cobrar" returnType="void" visibility="package" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="Registro" package="TP3" visibility="public" xPosition="517.0" yPosition="501.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="procesarDatos" returnType="void" visibility="package">
+          <Argument type="Trabajador" name="t"/>
+        </Method>
+        <Method name="procesarDatos" returnType="void" visibility="package">
+          <Argument type="Jubilado" name="j"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Test" package="TP3" visibility="public" xPosition="935.0" yPosition="201.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Trabajador" package="TP3" visibility="public" xPosition="759.0" yPosition="669.0">
+      <Fields>
+        <Field name="sueldo" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="dni"/>
+          <Argument type="LocalDate" name="fechaDeNacimiento"/>
+          <Argument type="String" name="domicilio"/>
+          <Argument type="int" name="sueldo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getSueldo" returnType="int" visibility="public"/>
+        <Method name="setSueldo" returnType="void" visibility="public">
+          <Argument type="int" name="sueldo"/>
+        </Method>
+        <Method name="cobrar" returnType="void" visibility="package"/>
+        <Method name="hacerAportes" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Activo" package="TP3" visibility="public" xPosition="952.0" yPosition="434.0">
+      <Methods>
+        <Method name="hacerAportes" returnType="void" visibility="package"/>
+      </Methods>
+    </Interface>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="TP3.Trabajador" target="TP3.Activo"/>
+    <IsRelation name="is" source="TP3.Trabajador" target="TP3.Persona"/>
+    <IsRelation name="is" source="TP3.Jubilado" target="TP3.Persona"/>
+    <UseRelation source="TP3.Registro" target="TP3.Trabajador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="TP3.Registro" target="TP3.Jubilado" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
